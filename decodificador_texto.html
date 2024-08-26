@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de Texto</title>
+</head>
+<body>
+    <h1>Decodificador de Texto</h1>
+
+    <label for="encodedText">Texto Codificado:</label>
+    <input type="text" id="encodedText" placeholder="Insira o texto codificado aqui">
+    
+    <button onclick="decodeText()">Decodificar</button>
+
+    <p id="decodedText"></p>
+
+    <script>
+        function decodeText() {
+            const encodedText = document.getElementById("encodedText").value;
+
+            try {
+                // Decodifica o texto usando decodeURIComponent (para texto codificado em URL)
+                const decodedText = decodeURIComponent(encodedText);
+                
+                // Exibe o texto decodificado
+                document.getElementById("decodedText").textContent = "Texto Decodificado: " + decodedText;
+            } catch (error) {
+                document.getElementById("decodedText").textContent = "Erro ao decodificar o texto!";
+            }
+        }
+    </script>
+</body>
+</html>
